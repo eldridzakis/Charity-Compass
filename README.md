@@ -19,7 +19,7 @@ Charity navigator only rates qualifying nonprofits- that is, organizations that 
 Financial Health Score
 The financial health score is a critical component of the organization’s nonprofit evaluation and can be calculated from the IRS 990 tax returns. It comprises seven metrics, each of which receive a score for a given range of a continuous variable. As an example, we can look at metric 4- fundraising efficiency, defined as the money a charity spends to raise $1. As can be seen in the table below, 10 points are given for the most efficient fundraisers and zero points for ineffective fundraisers. The scores for each metric are summed together and then thirty points are added to a give a financial health score that varies from 30-100.
 
- ![Table1](/Figure2.png)
+ ![Table1](/Figure2.png) <br>
 Table 1 – Showing how fundraising efficiency is scored. Similar scoring processes are applied to the other financial health metrics.
 
 ### Analysis
@@ -29,7 +29,7 @@ One assumption I’ve made in my approach is that to extend the current rating s
 ### Model Selection
 In terms of model selection, one would like a model which can reproduce the action of binning the continuous metric variables into discrete scoring bins. It would also be advantageous for a model to perform badly when new charities are very different from the currently rated charities. For this reason, I used Extremely Randomized Trees regressor. 
 
-![Figure3](/Figure3.png)
+![Figure3](/Figure3.png) <br>
 Figure 3 – The predicted financial health score plotted against the current financial Health Score plotted with the corresponding histograms (right and top respectively). The dashed line is x=y. Red points are points which fall more than 3 standard deviations from the mean residual.
 
 ### Results
@@ -37,17 +37,17 @@ At the time of this analysis I had access to the 2014 tax returns, therefore I c
 
 Of the unrated charities available in the 2014 tax returns, 4200 were found to meet the eligibility criteria. The trained model was then applied to these organizations and the results are plotted in figure 4. The explained variance is close to 0.9 and the number of outliers is comparable to that for the test set (figure 3).  Both histograms show left skewed distributions with small peaks at a score of 100. Although in general it appears that the rating of these 4000 additional charities is in line with their current rating system, they may want to inspect a few of the outliers before including them, for example a charity with a predicted health score of 56 and actual of 42. 
 
-![Figure4](/Figure4.png)
+![Figure4](/Figure4.png) <br>
 Figure 4 – The model prediction for unrated eligible charities
-This same trained model was applied to nonprofits with a revenue less than 1 million to investigate potential bias in the rating scoring system towards larger nonprofits. Figure 5 shows the results from fitting the model to 3400 charities with revenue from 0.1-0.5 million USD. The explained variance is again high, although the mean absolute error is 10% bigger, while the number of outliers is around 5%. The histograms show good agreement in the distribution of the scores. There are charities with discrepancies greater than 10 points, which would probably warrant further investigation. However, in general, a potential bias in the scoring system from developing the scoring system on larger charities is largely absent.
+This same trained model was applied to nonprofits with a revenue less than 1 million to investigate potential bias in the rating scoring system towards larger nonprofits. Figure 5 shows the results from fitting the model to 3400 charities with revenue from 0.5-1.0 million USD. The explained variance is again high, although the mean absolute error is 10% bigger, while the number of outliers is around 5%. The histograms show good agreement in the distribution of the scores. There are charities with discrepancies greater than 10 points, which would probably warrant further investigation. However, in general, a potential bias in the scoring system from developing the scoring system on larger charities is largely absent.
 
 ### Conclusions
 Charity Navigator’s financial health rating score can be broadened reliably to an additional 4000 unrated nonprofits that meet their current eligibility criteria. This would result in a 40% increase in the total number of charities rated. 
 Then extension to rating smaller charities appears feasible. The analysis suggests no bias towards larger organizations.
 These findings have been well received by Charity Navigator and they intend to incorporate the currently eligible unrated charities in the coming months, followed by the	 possible inclusion of smaller charities by the end of the year. The next step will be to analyze the 2017 tax returns to produce the final recommendations.
  
-![Figure5](/Figure5.png)
-Figure 5 – The model applied to charities with revenue from 0.1-0.5 million USD.
+![Figure5](/Figure5.png) <br>
+Figure 5 – The model applied to charities with revenue from 0.5-1.0 million USD.
 
 
 
