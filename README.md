@@ -6,9 +6,9 @@ Charity Navigator is a nonprofit that evaluates nonprofits. Part of their missio
 
 Until recently, the addition of new charities has been slow as obtaining tax information on nonprofits took time. Last year that changed when the Internal Revenue Service released machine-readable IRS 990 tax returns from nonprofits, and the potential for rapid expansion of their rating system became apparent.  The vision was to use the financial health score, a score they calculate from these tax returns, to gauge how well their rating system scales to new unrated charities.
 
+![GitHub Logo](/Figure1.png)
+
 Figure 1 – A scatter plot of around 100,000 charities from the 2014 tax returns against total revenue and public support with corresponding histograms (top and bottom respectively). The dashed lines indicate two of Charity Navigators eligibility criteria while the yellow box illustrates the space in which Charity Navigator currently operate.
-
-
 
 ### Background
 To understand the narrative, we need to cover a little ground; firstly, what criteria must a nonprofit meet to qualify for evaluation? Second, what metrics are used to calculate the financial health score?
