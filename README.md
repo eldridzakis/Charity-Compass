@@ -30,7 +30,7 @@ One assumption I’ve made in my approach is that to extend the current rating s
 In terms of model selection, one would like a model which can reproduce the action of binning the continuous metric variables into discrete scoring bins. It would also be advantageous for a model to perform badly when new charities are very different from the currently rated charities. For this reason, I used Extremely Randomized Trees regressor. 
 
 ![Figure3](/Figure3.png) <br>
-Figure 3 – The predicted financial health score plotted against the current financial Health Score plotted with the corresponding histograms (right and top respectively). The dashed line is x=y. Red points are points which fall more than 3 standard deviations from the mean residual.
+Figure 3 – The predicted financial health score plotted against the current financial Health Score plotted with the corresponding histograms (right and top respectively). The dashed line is x=y. Red points are points which fall more than 2 standard deviations from the mean residual.
 
 ### Results
 At the time of this analysis I had access to the 2014 tax returns, therefore I chose the 5600 organizations rated in that year for my model training and evaluation. After training on the training set (~4000 organizations), I used my model to predict the financial health score of the organizations in my test set of 1700 organizations. The results are shown in figure 3. The explained variance is close to 0.9, with a mean absolute error of 2 financial health points. The outliers (red points), make up 5% of the observations. The histograms for both the current and predicted show similar distributions, illustrating the ability of the model to reproduce the scoring system well.
